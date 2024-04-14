@@ -5,18 +5,13 @@ export default function App() {
     <View style={styles.container}>
       <View>
         <Text
-          style={{
-            margin: 16,
-            borderColor: "red",
-            borderWidth: 2,
-            padding: 16,
-          }}
+          style={styles.dummyText}
         >
           Another Text
         </Text>
       </View>
       <Text
-        style={{ margin: 16, borderColor: "red", borderWidth: 2, padding: 16 }}
+        style={styles.dummyText}
       >
         Hello World!!!!!!
       </Text>
@@ -32,4 +27,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  dummyText:{ margin: 16, borderColor: "red", borderWidth: 2, padding: 16 }
 });
