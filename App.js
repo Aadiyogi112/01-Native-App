@@ -18,7 +18,7 @@ export default function App() {
   };
 
   const addGoalHandler = () => {
-    setGoals((currentGoals) => [...currentGoals, enteredGoalText]);
+    setGoals((currentGoals) => [...currentGoals, {text: enteredGoalText, id: Math.random().toString()}]);
   };
 
   return (
@@ -41,6 +41,7 @@ export default function App() {
               </View>
             );
           }}
+          keyExtractor={(item, index)=>{return item.id}}
         />
 
         {/* <ScrollView>
