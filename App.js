@@ -1,24 +1,13 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-
-  FlatList,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 
 export default function App() {
-  const [enteredGoalText, setEnteredGoalText] = useState("");
   const [goals, setGoals] = useState([]);
 
-  const goalInputHandler = (enteredText) => {
-    setEnteredGoalText(enteredText);
-  };
-
-  const addGoalHandler = () => {
+  const addGoalHandler = (enteredGoalText) => {
     setGoals((currentGoals) => [
       ...currentGoals,
       { text: enteredGoalText, id: Math.random().toString() },
@@ -27,10 +16,7 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <GoalInput
-        addGoalHandler={addGoalHandler}
-        goalInputHandler={goalInputHandler}
-      />
+      <GoalInput onAddGoal={addGoalHandler} />
       <View style={styles.goalsContainer}>
         <FlatList
           data={goals}
